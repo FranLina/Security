@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Permission List</title>
+</head>
+
+<body>
+
+    <div th:replace="menu :: menu" />
+
+
+    <h1>Permission List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Permission Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="permission : ${permissions}">
+                <td th:text="${permission.id}"></td>
+                <td th:text="${permission.name}"></td>
+                <td>
+                    <a href="#" th:href="@{/permission/edit/{id}(id=${permission.id})}" th:text="Edit"></a>
+                    <a href="#" th:href="@{/permission/delete/{id}(id=${permission.id})}" th:text="Delete"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="#" th:href="@{/permission/new}" th:text="Add"></a>
+
+</body>
+
+</html>

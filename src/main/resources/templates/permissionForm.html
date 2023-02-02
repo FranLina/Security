@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit Permission</title>
+</head>
+
+<body>
+    <div th:replace="menu :: menu" />
+
+
+    <h1>
+        <span th:if="${permission.id == null}">Add New permision</span>
+        <span th:if="${permission != null}">Edit permission</span>
+    </h1>
+    <form action="#" th:action="@{/permission/save}" th:object="${permission}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label>Permission Name:</label>
+            <input type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+            <a href="#" th:href="@{/permissions}" th:text="Cancel"></a>
+        </div>
+    </form>
+
+</body>
+
+</html>

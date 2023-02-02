@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group Management</title>
+</head>
+
+<body>
+
+    <div th:replace="menu :: menu" />
+
+    <h1>
+        <span th:if="${group == null}">Add New Group</span>
+        <span th:if="${group != null}">Edit Group</span>
+    </h1>
+
+    <form action="#" th:action="@{/group/save}" th:object="${group}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label>Group Name:</label>
+            <input type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+
+    <a href="#" th:href="@{/groups}" th:text="Back"></a>
+
+</body>
+
+</html>
