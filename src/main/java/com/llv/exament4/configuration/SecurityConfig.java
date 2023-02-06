@@ -7,6 +7,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -14,6 +17,12 @@ import com.llv.exament4.services.UserService;
 
 @Configuration
 public class SecurityConfig {
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        //return NoOpPasswordEncoder.getInstance();
+    }
 
     @Bean
     UserService myUserService() {
@@ -41,7 +50,7 @@ public class SecurityConfig {
         DaoAuthenticationProvider auProvider = new DaoAuthenticationProvider();
 
         auProvider.setUserDetailsService(user());
-        auProvider.setPasswordEncoder(null);
+        auProvider.setPasswordEncoder(passwordEncoder());
 
         return auProvider;
     }
