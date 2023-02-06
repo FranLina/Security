@@ -23,7 +23,6 @@ public class Group {
     @OneToMany(mappedBy = "group")
     private List<User> users;
 
-    
     public long getId() {
         return id;
     }

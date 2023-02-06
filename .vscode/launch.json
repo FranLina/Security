@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Exament4Application<exament4>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.llv.exament4.Exament4Application",
+            "projectName": "exament4",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

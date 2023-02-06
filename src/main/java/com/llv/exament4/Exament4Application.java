@@ -3,11 +3,14 @@ package com.llv.exament4;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.llv.exament4.models.User;
+
 @SpringBootApplication
 public class Exament4Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Exament4Application.class, args);
 	}
+
 
 }
